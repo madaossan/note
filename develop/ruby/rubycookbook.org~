@@ -1,0 +1,139 @@
+Ruby Cookbook
+
+
+* String
+** Building a String from Parts
+hash = {"key" => "val1"}
+string = ""
+hash.each{|k,v| string << "#{k} is #{v}\n"}
+String = hash.keys.join("\n")+"\n"
+
+** Substituting Variables into Strings
+
+* Objects and Classes
+** Managing Instance Data
+Within the code for the object's class, define a variable and prefix its name with an at sign @.
+If you want to make an instance variable readable from outside the object, call the attr_reader method on its symbol:
+class Frog
+	attr_reader :name
+	attr_accessor :age
+end
+attr_accessor method to make it readable and writable.
+In Ruby, instance variables don't exist until they're defined.
+** Managing Class Data
+Class variables are prefixed by two at signs.
+
+** Check Class or Module Membership
+If you plan to call a specific method on the object, just check to see whether the object responds to that method:
+if obj.respond_to? :package
+If you really can only accept objects of one specific class, or objects that include one specific module, use the is_a? predicate:
+if a.is_a? Float
+Whenever possible, you should use duck typing (Object#respond_to?) in preference to class typing(Object#is_a?). 
+
+** Writing an Inherited Class
+If you're writing a new method that conceptually belongs in the original class, you can reopen the class and append your method to the class definition(conflict risk).
+Create a subclass of the original class.
+class UnpredictableString < String
+
+** Overloading Methods
+create two different versions of a method with the same name: two methods that differ in the arguments they take.
+A Ruby class have onlu one method with a given name. Within that single method, though, you can put logic taht branches depending on how many and what kinds of objects were passed in as arguments.
+class Rectangle
+	def initialize(*args)
+		case args.size
+		when 2
+			@top_left, @bottom_right = args
+		when 3
+		else
+		end
+	end
+end
+
+** Validating and Modifying Attribute Values
+Define your own setter method for each instance variable you want to control. The setter method for an instance variable quantity would be called quantity=.
+Ruby never lets one object access anther object's instance variables. All you can do is call methods.
+
+** Defining a Virtual Attribute
+Define accessor methods for the attribute in terms of the instance variables that are actually used.
+
+** Delegating Method Calls to Another Object
+If you want to completely impersonate another object, or delegate most of one object's calls to another, use the delegate library.
+???
+
+** Converting and Coercing Objects to Different Types
+You might not have to do anything at all. Ruby doesn't enforce type safety unless the programmer has explicitly written it in. If your original class defines the same methods as the class you were thinking of converting it to, you might be able to use your object as is.
+
+Ruby has no cast operator. From Ruby's perspective, type checking is just an extra hoop you have to jump through. A cast operator would make it easier to jump through that hoop, but Ruby omits the hoop altogether.
+
+** Getting a Human-Readable Printout of Any Object
+Use Object#inspect. 
+
+** Accepting or Passing a Variable Number of Arguments
+Prefix the last argument name with an asterisk. When the method is called, all the extra arguments will be collected in a list and passed in as that argument
+def sum(*numbers)
+
+** Simulating Keyword Arguments
+You want to let callers pass in onlu the arguments they have values for, but Ruby doesn't support keyword arguments as Python and Lisp do.
+Write your function to accept as its final argument a map of symbols to values. Consult the map as necessary to see what arguments were passed in.
+def fun_with_text(text, args={})
+	text = text.upcase if args[:upcase]
+end
+
+** Calling a Superclass's Method
+
+** Creating an Abstract Method
+
+** Freezing an Object to Prevent Changes
+
+** Making a Copy of an Object
+
+** Declaring Constants
+
+** Implementing Class and Singleton Methods
+
+** Controlling Access by Making Methods Private
+
+* Modules and Namespaces
+
+A Ruby mmodule is nothing more than a grouping of objects under a single name. The objects may be constants, methods, classes, or other modules.
+Modules have two uses. You can use a module as a convenient way to bundle objects together, or you can incorporate its contents into a class with Ruby's include statement.
+
+When a module is used as a container for objects, it's called a namespace. Ruby's Math module is a good example of a namespace: it provides an overarching structure for constants like Math::PI and methods like Math::log.
+
+Modules are also used to package functionality for inclusion in classes. The Enumerable module isn't 
+
+** Simulating Multiple Inheritance with Mixins
+You want to create a class that derives from two or more sources, but Ruby doesn't support multiple inheritance.
+modlue Taggable
+end
+class TaggableString
+	include Taggable
+end
+
+A Ruby class can only have one superclass, but it can include any number of modules. These modules are called mixins.
+
+** Extending Specific Objects with Modules
+Use the Object#extend method to add instance methods from a module to specific objects and won't mix the module into the object's class.
+
+clark.extend(SuperPowers)
+
+** Mixing in Class Methods
+
+** Implementing Enumerable: Write One Method, Get 22 Free
+
+
+** Avoiding Naming Collisions with Namespaces
+
+** Automatically Loading Libraries as Needed
+
+** Including Namespaces
+
+
+** Initializing Instance Variables Defined by a Module
+
+** Automatically initializing Mixed-In Modules
+
+* Reflection and Metaprogramming
+
+* XML and HTML
+There are two standard APIs for manipulating XML: DOM and SAX. 

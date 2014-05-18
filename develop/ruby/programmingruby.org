@@ -1,0 +1,16 @@
+Programming Ruby 1.9&2.0
+
+* Facets of Ruby
+** Ruby.new
+*** Ruby is an Object-Oriented Language
+*** Some Basic Ruby
+*** Arrays and Hashes
+*** Symbols
+Symbols are simply constant names that you don't have to predeclare and that are guaranteed to be unique. A symbol literal starts with a colon and is normally followed by some kind of name:
+walk(:north)
+Symbols are frequently used as keys in hashes. Ruby has a shortcut syntax: you can use name: value pairs to create a hash if the keys are symbols.
+inst_section= {
+	cello: 'string'
+}
+*** Control Structures
+

@@ -1,0 +1,19 @@
+Android Cookbook
+
+* Getting Started
+** Introduction: Getting Started
+** Android Lifecycle
+The class android.Activity provides a number of well-defined life-cycle methods that are called when an application is started, suspended, restarted, etc., as well as a method you can call to mark an Activity as finished.
+An Android application has three states it can be in:
+Active: the app is visible to the user and is running;
+Paused: the app is partly obscured and has lost the input focus.
+Stopped - the app is completely hidden from view
+void onCreate(Bundle savedInstanceState)
+void onStart()
+void onResume()
+void onRestart()
+void onPause()
+void onStop()
+void onDestroy()
+
+

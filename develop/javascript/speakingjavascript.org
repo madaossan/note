@@ -1,0 +1,21 @@
+Speaking JavaScript
+
+
+* JavaScript Quick Start
+** Basic JavaScript
+*** Background
+
+*** Syntax
+Statements vs Expression
+Statements "do things".
+Expressions produce values.
+Semicolons are optional in JavaScript(Always including them are recommended).
+Semicolons terminate statements, but not blocks.
+var f = function(){};
+Comments:
+// /**/
+Variables and Assignment
+Variables in JavaScript are declared before they are used.
+
+Identifiers and Variable Names
+

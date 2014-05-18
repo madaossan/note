@@ -1,0 +1,10 @@
+Pro android C++ with ndk
+
+* Getting started with C++ on Android
+
+
+* Exploring the Android NDK
+** Components Provided with the Android NDK
+** Structure of the Android NDK
+During the installation process, all of the Android NDK components are installed under the taget
+ndk-build:
