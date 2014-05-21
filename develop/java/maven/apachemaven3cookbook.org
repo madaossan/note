@@ -1,0 +1,24 @@
+Apache maven 3 cookbook
+
+* Basics of Apache Maven
+
+** Setting up Apache Maven on Windows
+add to build path
+
+mvn -version
+
+** Creating a new project
+Use the Maven archetype:generate goal to generate first Maven Java project.
+mvn archetype:generate
+Next you will have to enter the Maven "project co-ordinates" such as groupId, artifactId, version, and package.
+** Compiling and testing a project
+mvn compile
+
+Test Driven Development(TDD) is a popular practice that is advocated for and followed religiously by some of the very best software craftsmen in the industry.
+mvn test
+This command triggers Maven to run the tests present in the ../src/test folder.
+
+** Understanding the Project Object Model
+Every Apache Maven project contains a pom.xml file. The pom.xml file is the XML representation of the project and thus contains all metadata pertaining to the project.
+
+*** Sections of the POM
